@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteting the string</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: rgb(249, 5, 5);
+        padding: 100px;
+        font-size: 39px;
+    }
+</style>
+<body>
+<h1 id="heading">javascript</h1>
+    
+</body>
+<script>
+    const rotateString = function (id) {
+    let element = document.getElementById(id)
+    const textNode = element.childNodes[0]
+    let text = textNode.data;
+
+    setInterval(()=>{
+        text = text[text.length - 1] + text.substring(0, text.length - 1);
+        textNode.data = text;
+    },500) // you can increse or decrese the speed of rotating string 
+    
+}
+rotateString('heading')
+
+</script>
+</html>
