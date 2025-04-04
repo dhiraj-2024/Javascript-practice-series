@@ -9,7 +9,7 @@ var myObject ={
         console.log("outer func  this.foo =" + this.foo); //bar
         console.log("outer func  self.foo=" + self.foo); //bar
         (function(){
-            console.log("inner func  this.foo =" + this.foo); // undefined
+            console.log("inner func  this.foo =" + this.foo); // undefined 
             console.log("inner func  self.foo=" + self.foo); // bar
         }())
     }
