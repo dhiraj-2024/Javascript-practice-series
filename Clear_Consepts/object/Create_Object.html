@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>we will see diffirent methods to create object </div>
+
+    <h1>creating object using literals </h1>
+    <p id="demo"></p>
+
+    <h1>creating object using new keywords</h1>
+    <p id="demo2"></p>
+    
+    <h1>creating object using object cunstructors </h1>
+    <p id="demo3"></p>
+
+
+    <script>
+        // USING LITERALS {}
+        const person = {
+            firstName:"dhiraj",
+            lastName : "rajput",
+            age: 22,
+            city:"nashik"
+        }
+
+        let text = Object.entries(person)
+        document.getElementById("demo").innerHTML = text ;
+
+        // USING NEW KEYWORDS
+        const person2 = new Object();
+        // add properties
+        person2.firstName = "pramod";
+        person2.lastName = "dwarkunde";
+        person2.city = "csn"
+
+        let text2 = Object.entries(person2)
+        document.getElementById("demo2").innerHTML = text2;
+
+        // USING OBJECT CUNSTRUCTORS 
+
+        function car(color,type,model,brand){
+            this.carColor = color;
+            this.carType = type;
+            this.carModel = model;
+            this.carBrand = brand;
+            this.carOrigin = "india"
+        }
+        const car1 = new car("white","suv",2020,"tata");
+        const car2 = new car("black","sidan",2025,"Mahindra");
+
+        let text3 = car1.carColor + " and " + car2.carColor + " car i have " + 
+        car2.carOrigin + " and " + car1.carOrigin
+
+        document.getElementById("demo3").innerHTML = text3;
+    </script>
+    
+</body>
+</html>
