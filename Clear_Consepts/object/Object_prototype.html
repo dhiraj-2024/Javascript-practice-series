@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Object Prototype</h1>
+<p id="demo"></p>
+<p id="demo2"></p>
+    
+<script>
+    // we create this object using object cunstructor method 
+    function Person(fist,last,age,city){
+        this.fistName = fist;
+        this.lastName = last;
+        this.age = age;
+        this.city = city;
+    }
+    // try to add extra property country to the above object but it shows undefine 
+    Person.country = "india";
+    const person1 = new Person("dhiraj","rajput",22,"nashik");
+    let text = person1.fistName + " " + person1.lastName + " comes from " + person1.country
+ 
+    // document.getElementById("demo").innerHTML = text;
+
+
+    // add new property using prototype 
+    // we can add new property using prototype 
+    Person.prototype.country = "india";
+    const person2 = new Person("dhiraj","rajput",22,"nashik");
+    let text2 = person2.fistName + " " + person2.lastName + " comes from " + person2.country
+    //  protoype also allows you to add new method in the object 
+    Person.prototype.name = function(){
+        return this.fistName + " " + this.lastName;
+    }
+    let text3 = person2.name()
+    document.getElementById("demo").innerHTML = text3;
+
+</script>
+</body>
+</html>
