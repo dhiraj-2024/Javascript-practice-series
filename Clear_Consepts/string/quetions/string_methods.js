@@ -35,6 +35,7 @@ let towell = text2.toWellFormed();
 let trim = text1.trim();
 
 /*
+remaining string methods : 
 padStart()
 padEnd()
 replace()
