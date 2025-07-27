@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object Methods</h1>
+    <p id="demo"></p>
+
+    <script>
+
+        //  ASSIGN()
+
+// const person = {
+// firstName: "dhiraj",
+// lastName: "rajptut",
+// city:"nashik"
+// }
+
+// const person2 = {firstName:"pramod",lastName:"dwarkunde"}
+// Object.assign(person,person2);
+// let text = Object.entries(person)
+// document.getElementById("demo").innerHTML = text;
+
+      // CREATE()
+// const person = {
+// firstName: "dhiraj",
+// lastName: "rajptut",
+// city:"nashik"
+// }
+
+// const men1 = Object.create(person);
+// men1.firstName = "suyog";
+
+// document.getElementById("demo").innerHTML = person.firstName + " and " + men1.firstName + " are best friends"
+        
+        //DEFINEPROPERTIES
+
+// const person = {
+// firstName: "dhiraj",
+// lastName: "rajptut",
+// }
+
+// Object.defineProperties(person,{
+//     age:{value:22},
+//     city:{value:"nashik"}
+// });
+
+// document.getElementById("demo").innerHTML = person.age + " " + person.firstName + " " + person.city;
+ 
+        //DEFINEPROPERTY
+
+// const person ={
+//     name: "dhiraj",
+//     age:22,
+//     lang:"EN"
+// }
+//CHANGE PROPERTY
+// Object.defineProperty(person,'lang',{value:"hindi"})
+// let text = Object.entries(person);
+// document.getElementById("demo").innerHTML = text;
+
+
+// ADD NEW PROPERTY
+// Object.defineProperty(person,"city",{value:"nashik"})
+// document.getElementById("demo").innerHTML = person.city;
+
+     //ENTRIES()
+
+//   const fruits = {banana:300,mango:400,apple:500,grapes:100} 
+//   let text = ""  ;
+//   for(let[fruit,vlaue] of Object.entries(fruits)){
+//      text += fruit + ": " + vlaue + "</br>"
+//   }
+//    document.getElementById("demo").innerHTML = text;
+
+
+     //GROUPBY()
+     const fruits = [
+        {name:"banana",quantity:300},
+        {name:"mango",quantity:370},
+        {name:"pineapple",quantity:400},
+        {name:"grapes",quantity:180},
+        {name:"chikoo",quantity:200},
+        {name:"papaya",quantity:20},
+     ]
+     function sortFruit({quantity}){
+        return quantity > 200 ? "ok" : "low";
+     }
+
+     const result = Object.groupBy(fruits,sortFruit);
+
+     let text = "these fruits are ok </br>"
+     for(let [x,y] of result.ok.entries()){
+        text += y.name + ": " + y.quantity + "</br>"
+     }
+     text += "<br>These fruits are low: <br>";
+     for (let [x,y] of result.low.entries()) {
+     text += y.name + ": " + y.quantity + "<br>";
+      }
+     document.getElementById("demo").innerHTML = text;
+    </script>
+</body>
+</html>
