@@ -6,6 +6,15 @@
 ==> this is basically allows user to write expressions inside the string using backticks:
 eg: let name = "dhiraj";
     console.log(`hello how are you ${name}`)
+    
+# 2.1 Escape charecter
+### when we try to calculate string lenght with escape charectr it consider \* it one not two
+- \b	Backspace
+- \f	Form Feed
+- \n	New Line
+- \r	Carriage Return
+- \t	Horizontal Tabulator
+- \v	Vertical Tabulator
 
 # 3. String Comparision (letter by letter) ........ special power 🤩
 eg: console.log("apple" > "pineapple").......output : false
