@@ -1,4 +1,6 @@
-# JavaScript Array Methods Cheatsheet
+##### _______________________________________________________________________________________________ by Dhiraj Barwal
+
+# JavaScript Array Methods 
 
 ## 🔹 Array Reverse and Sort
 **📝 Notes:**
