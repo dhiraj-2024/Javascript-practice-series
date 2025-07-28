@@ -1,141 +1,178 @@
-
-# 1. JavaScript Array Methods
+# JavaScript Array Methods Cheatsheet
 
 ## 🔹 Array Reverse and Sort
+**📝 Notes:**
+- `reverse()` reverses the original array (mutates)
+- `sort()` sorts alphabetically (by Unicode, mutates)
 
 ```js
 const animal = ["dog", "cat", "cow", "tiger", "elephant"];
 
-console.log("Reverse array element before sorting: ", animal.reverse());
-console.log("Sort animals alphabetically: ", animal.sort());
-console.log("Reverse array element after sorting: ", animal.reverse());
+console.log("Reverse before sort:", animal.reverse());
+console.log("Sort alphabetically:", animal.sort());
+console.log("Reverse after sort:", animal.reverse());
 ```
 
-**📝 Notes:**
-- `reverse()` reverses the original array.
-- `sort()` sorts alphabetically (by Unicode code points).
-- Order matters: `.reverse().sort().reverse()` can control alphabetical descending order.
-
-**✅ Output:**
+✅ **Output:**
 ```
-Reverse array element before sorting: [ 'elephant', 'tiger', 'cow', 'cat', 'dog' ]
-Sort animals alphabetically: [ 'cat', 'cow', 'dog', 'elephant', 'tiger' ]
-Reverse array element after sorting: [ 'tiger', 'elephant', 'dog', 'cow', 'cat' ]
+Reverse before sort: [ 'elephant', 'tiger', 'cow', 'cat', 'dog' ]
+Sort alphabetically: [ 'cat', 'cow', 'dog', 'elephant', 'tiger' ]
+Reverse after sort: [ 'tiger', 'elephant', 'dog', 'cow', 'cat' ]
 ```
 
 ---
 
-## 🔹 Safe Reverse and Sort (ES2023)
+## 🔹 Safe Reverse/Sort (ES2023)
+**📝 Notes:**
+- `toReversed()` returns new reversed array
+- `toSorted()` returns new sorted array
+- Both keep original unchanged
 
 ```js
-const birds = ["sparrow", "parrot", "crow", "egale"];
+const birds = ["sparrow", "parrot", "crow", "eagle"];
 
-console.log("Reverse birds array using toReversed(): ", birds.toReversed());
-console.log("Sort birds array using toSorted(): ", birds.toSorted());
+console.log("Safe reverse:", birds.toReversed());
+console.log("Safe sort:", birds.toSorted());
+console.log("Original remains:", birds);
 ```
 
-**📝 Notes:**
-- `toReversed()` creates a reversed copy (original stays unchanged).
-- `toSorted()` returns a new sorted array (original remains same).
-
-**✅ Output:**
+✅ **Output:**
 ```
-toReversed: [ 'egale', 'crow', 'parrot', 'sparrow' ]
-toSorted: [ 'crow', 'egale', 'parrot', 'sparrow' ]
+Safe reverse: [ 'eagle', 'crow', 'parrot', 'sparrow' ]
+Safe sort: [ 'crow', 'eagle', 'parrot', 'sparrow' ]
+Original remains: [ 'sparrow', 'parrot', 'crow', 'eagle' ]
 ```
 
 ---
 
 ## 🔹 Numeric Sort Issues
+**📝 Notes:**
+- Default `sort()` converts numbers to strings 😤
+- Always use compare function for numbers
 
 ```js
 const numbers = [21, 453, 88, 46, 73, 9, 20, 1, 60, 59, 298];
 
-console.log("Incorrect sort: ", numbers.sort());
-console.log("Correct numeric sort: ", numbers.sort((a, b) => a - b));
+console.log("WRONG sort:", numbers.sort());
+console.log("RIGHT sort:", numbers.sort((a,b) => a - b));
 ```
 
-**📝 Notes:**
-- Default `sort()` treats elements as strings.
-- Use compare function for correct number sort.
-
-**✅ Output:**
+✅ **Output:**
 ```
-Incorrect sort: [ 1, 20, 21, 298, 453, 46, 59, 60, 73, 88, 9 ]
-Correct sort: [ 1, 9, 20, 21, 46, 59, 60, 73, 88, 298, 453 ]
+WRONG sort: [1, 20, 21, 298, 453, 46, 59, 60, 73, 88, 9]
+RIGHT sort: [1, 9, 20, 21, 46, 59, 60, 73, 88, 298, 453]
 ```
 
 ---
 
 ## 🔹 Sorting Tips
-
 ```js
-// Ascending
-arr.sort((a, b) => a - b);
+// Ascending (a-b)
+[5,2,8].sort((a,b) => a - b); // [2,5,8]
 
-// Descending
-arr.sort((a, b) => b - a);
+// Descending (b-a)
+[5,2,8].sort((a,b) => b - a); // [8,5,2]
 
-// Random
-arr.sort(() => 0.5 - Math.random());
+// Random shuffle
+[5,2,8].sort(() => 0.5 - Math.random());
 
-// Min / Max
-Math.min.apply(null, arr);
-Math.max.apply(null, arr);
+// Min/Max (ES6 way)
+Math.min(...[5,2,8]); // 2
+Math.max(...[5,2,8]); // 8
 ```
 
 ---
 
 ## 🔹 Common Array Methods
-
 ```js
-const animal = ["dog", "cat", "cow", "tiger", "elephant"];
-console.log(animal.toString());  // "dog,cat,cow,tiger,elephant"
-console.log(animal.push("ox"));  // Adds "ox"
-console.log(animal.pop());       // Removes last element
-console.log(animal.length);      // Array length
-console.log(animal.at(2));       // Element at index 2
-console.log(animal.shift());     // Removes first element
-console.log(animal.unshift("buffelo")); // Adds at start
-console.log(animal.join("-"));   // Join with "-"
+const arr = ["dog", "cat", "cow"];
+
+// Convert to string
+arr.toString(); // "dog,cat,cow"
+
+// Add/remove from end
+arr.push("tiger"); // Returns new length (4)
+arr.pop(); // Removes/returns "tiger"
+
+// Add/remove from start
+arr.unshift("bird"); // Returns new length
+arr.shift(); // Removes/returns "bird"
+
+// Join with separator
+arr.join(" * "); // "dog * cat * cow"
+
+// Get element
+arr.at(1); // "cat"
+arr.at(-1); // "cow" (last element)
 ```
 
 ---
 
-## 🔹 Concat Arrays
-
+## 🔹 Combining Arrays
 ```js
-console.log(animal.concat(birds));
-console.log(animal.concat(birds, trees));
+const animals = ["dog", "cat"];
+const birds = ["eagle", "parrot"];
+
+// Merge arrays
+animals.concat(birds); // ["dog","cat","eagle","parrot"]
+
+// Merge multiple
+animals.concat(birds, ["fish"]); // ["dog","cat","eagle","parrot","fish"]
 ```
 
 ---
 
 ## 🔹 Flat and FlatMap
-
 ```js
-const numbers = [[1,2],[3,4],[5,6],[7,8]];
-console.log(numbers.flat());  // Flattened one level
+// Flatten nested arrays
+[[1,2],[3,4]].flat(); // [1,2,3,4]
 
-const num = [1,2,3];
-console.log(num.flatMap(x => [x, x * 10])); 
-```
-
-**✅ Output:**
-```
-flat: [1, 2, 3, 4, 5, 6, 7, 8]
-flatMap: [1, 10, 2, 20, 3, 30]
+// Map + flatten in one step
+[1,2,3].flatMap(x => [x, x*10]);
+// [1,10, 2,20, 3,30]
 ```
 
 ---
 
-## 🔹 Splice and Slice
+## 🔹 Splice vs Slice
+**📝 Notes:**
+- `splice()` modifies original array
+- `slice()` returns new array
 
 ```js
-animal.splice(2, 0, "jiraf", "zebra", "donkey"); // Add elements
-animal.slice(3); // Copy portion from index 3
+const arr = ["a", "b", "c", "d"];
+
+// splice(start, deleteCount, items...)
+arr.splice(1, 2, "x", "y");
+// Returns ["b","c"]
+// arr becomes ["a","x","y","d"]
+
+// slice(start, end)
+arr.slice(1, 3); // ["x","y"]
+// Original unchanged
 ```
 
-**📝 Notes:**
-- `splice(start, deleteCount, items...)` modifies the original array.
-- `slice(start, end?)` returns a shallow copy.
+---
+
+## 🔹 Important Notes
+
+**🔸 Mutating Methods (change original):**
+- `push()`, `pop()`, `shift()`, `unshift()`
+- `sort()`, `reverse()`, `splice()`
+
+**🔸 Non-Mutating (return new array):**
+- `toSorted()`, `toReversed()`, `slice()`
+- `concat()`, `flat()`, `flatMap()`
+
+**💡 Performance Tips:**
+- `push/pop` are faster than `shift/unshift`
+- Avoid sorting inside loops
+- Use `Set` for unique values
+
+---
+
+## 🔹 ES2023+ Features
+```js
+arr.toSpliced(1,2,"new"); // Safe splice
+arr.with(2,"new"); // Safe index update
+```
