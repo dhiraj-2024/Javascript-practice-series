@@ -46,7 +46,7 @@ JavaScript compares strings **letter by letter using Unicode**.
 
 ```js
 console.log("apple" > "pineapple");    // false
-console.log("pineapple" < "apple");    // true
+console.log("pineapple" > "apple");    // true
 ```
 
 ---
