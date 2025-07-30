@@ -1,3 +1,5 @@
+##### _______________________________________________________________________________________________ by Dhiraj Barwal
+
 # 🧮 JavaScript Arithmetic Operations
 
 JavaScript supports all standard arithmetic operations you’ve seen in math. Let’s break them down:
