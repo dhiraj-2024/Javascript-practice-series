@@ -89,6 +89,23 @@ arr.push(4);       // ✅ Allowed
 
 ---
 
+---
+
+## 🧾 Comparison Table
+
+| Feature                     | `var`                | `let`                  | `const`                  |
+|----------------------------|----------------------|------------------------|--------------------------|
+| Scope                      | Function/global      | Block (`{}`)           | Block (`{}`)             |
+| Can be re-declared         | ✅ Yes                | ❌ No                  | ❌ No                    |
+| Can be updated             | ✅ Yes                | ✅ Yes                 | ❌ No                    |
+| Hoisted                    | ✅ Yes                | ✅ Yes                 | ✅ Yes    |
+| Must initialize?           | ❌ No                 | ❌ No                  | ✅ Yes                   |
+| Temporal Dead Zone (TDZ)?  | ❌ No                 | ✅ Yes                 | ✅ Yes                   |
+| Use in modern JS?          | ❌ Avoid              | ✅ Yes                 | ✅ Yes                   |
+
+---
+
+
 ## 🎯 Real-Life Analogy
 
 - `var` → Like a whiteboard anyone can overwrite any time.
