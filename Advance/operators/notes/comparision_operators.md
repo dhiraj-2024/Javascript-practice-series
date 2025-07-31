@@ -107,6 +107,4 @@ console.log(score ?? 100); // Output: 0 ✅
 
 ---
 
-✅ Perfect for **JavaScript revision**  
-💼 Helpful in **interviews**  
-🚀 Used in real-world **web development**
+
