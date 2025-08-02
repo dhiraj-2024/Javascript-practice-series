@@ -1,4 +1,4 @@
-
+####______________________________________________________________________________________By code with dhiraj
 # 🧠 JavaScript Variables: `var`, `let`, and `const`
 
 Understanding how to declare variables is one of the **first and most important concepts** in JavaScript. Let’s dive deep into the differences between `var`, `let`, and `const`.
@@ -88,6 +88,23 @@ arr.push(4);       // ✅ Allowed
 | Use in modern JS?          | ❌ Avoid              | ✅ Yes                 | ✅ Yes                   |
 
 ---
+
+---
+
+## 🧾 Comparison Table
+
+| Feature                     | `var`                | `let`                  | `const`                  |
+|----------------------------|----------------------|------------------------|--------------------------|
+| Scope                      | Function/global      | Block (`{}`)           | Block (`{}`)             |
+| Can be re-declared         | ✅ Yes                | ❌ No                  | ❌ No                    |
+| Can be updated             | ✅ Yes                | ✅ Yes                 | ❌ No                    |
+| Hoisted                    | ✅ Yes                | ✅ Yes                 | ✅ Yes    |
+| Must initialize?           | ❌ No                 | ❌ No                  | ✅ Yes                   |
+| Temporal Dead Zone (TDZ)?  | ❌ No                 | ✅ Yes                 | ✅ Yes                   |
+| Use in modern JS?          | ❌ Avoid              | ✅ Yes                 | ✅ Yes                   |
+
+---
+
 
 ## 🎯 Real-Life Analogy
 
