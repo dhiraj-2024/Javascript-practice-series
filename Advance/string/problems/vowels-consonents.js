@@ -19,7 +19,7 @@ let checkVowelsAndConsonents =(str)=>{
   console.log(`Vowels are : ${vCount} and Consonents are: ${cCount}`)
 }
 
-console.log(checkVowelsAndConsonents("dhirajiii"))
+console.log(checkVowelsAndConsonents("dhirajiii")); //Vowels are : 5 and Consonents are: 4
 
 
 // Method 2:
@@ -36,4 +36,4 @@ const checkVandC =(str)=>{
     console.log(`vowels are: ${vowelC} and consonents are: ${consonentC}`)
 }
 
-checkVandC("hello")
+checkVandC("hello") //vowels are: 2 and consonents are: 3
